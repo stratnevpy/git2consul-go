@@ -83,7 +83,7 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 		return err
 	}
 	fmt.Printf("FLANT-Debug: [%s] Content:\n%s\n", f.path, content)
-	content = strings.TrimSuffix(content, "\n")
+	content = strings.TrimSuffix(string(content), "\n")
 	fmt.Printf("FLANT-Debug-*: [%s] Content:\n%s\n", f.path, content)
 	err = kv.PutKV(repo, f.path, content)
 	if err != nil {
@@ -178,3 +178,5 @@ func entriesToKV(node map[interface{}]interface{}) map[string][]byte {
 	}
 	return keys
 }
+
+func 
