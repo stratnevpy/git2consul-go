@@ -82,7 +82,7 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("FLANT-Debug: %s", content)
+	fmt.Printf("FLANT-Debug: [%s] Content:\n%s\n", f.path, content)
 	err = kv.PutKV(repo, f.path, content)
 	if err != nil {
 		return err
