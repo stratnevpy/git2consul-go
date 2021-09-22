@@ -179,5 +179,3 @@ func entriesToKV(node map[interface{}]interface{}) map[string][]byte {
 	}
 	return keys
 }
-
-func 
