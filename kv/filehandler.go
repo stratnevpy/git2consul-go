@@ -84,7 +84,7 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 		return err
 	}
 	fmt.Printf("FLANT-Debug: [%s] Content:\n%s\n", f.path, content)
-	content = bytes.TrimSuffix(content, "\n")
+	content = bytes.TrimSuffix(content, []byte("\n"))
 	fmt.Printf("FLANT-Debug-*: [%s] Content:\n%s\n", f.path, content)
 	err = kv.PutKV(repo, f.path, content)
 	if err != nil {
