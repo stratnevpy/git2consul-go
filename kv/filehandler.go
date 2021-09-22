@@ -21,6 +21,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"bytes"
 	"fmt"
 
 	"github.com/KohlsTechnology/git2consul-go/repository"
@@ -83,7 +84,7 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 		return err
 	}
 	fmt.Printf("FLANT-Debug: [%s] Content:\n%s\n", f.path, content)
-	content = strings.TrimSuffix(string(content), "\n")
+	content = bytes.TrimSuffix(content, "\n")
 	fmt.Printf("FLANT-Debug-*: [%s] Content:\n%s\n", f.path, content)
 	err = kv.PutKV(repo, f.path, content)
 	if err != nil {
