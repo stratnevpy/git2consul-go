@@ -21,6 +21,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"fmt"
 
 	"github.com/KohlsTechnology/git2consul-go/repository"
 	"gopkg.in/yaml.v2"
@@ -81,6 +82,7 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 	if err != nil {
 		return err
 	}
+	fmt.Printf("FLANT-Debug: %s", content)
 	err = kv.PutKV(repo, f.path, content)
 	if err != nil {
 		return err
